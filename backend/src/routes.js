@@ -10,8 +10,9 @@ const routes = express.Router();
 
 routes.post('/sessions', SessionController.create);
 
-routes.get('/ongs', OngController.index);
-routes.post('/ongs', celebrate({
+routes.get('/ngos', OngController.index);
+
+routes.post('/ngos', celebrate({
     [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
         email: Joi.string().required().email(),
