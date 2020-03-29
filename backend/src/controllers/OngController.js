@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+const generateUniqueId = require('../utils/generateUniqueId');
 
 const DBconnection = require('../database/DBconnection');
 
@@ -10,7 +10,7 @@ module.exports = {
     },
     async create (request, response) {
         const { name, email, whatsapp, city, state } = request.body;
-        const id = crypto.randomBytes(4).toString('HEX');
+        const id = generateUniqueId();
     
         await DBconnection('ongs').insert({
             id,
